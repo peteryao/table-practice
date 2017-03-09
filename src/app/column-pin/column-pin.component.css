@@ -1,0 +1,5 @@
+.datatable { height: 8000px; }
+
+.ngx-datatable.scroll-vertical {
+    height: 70vh;
+}
