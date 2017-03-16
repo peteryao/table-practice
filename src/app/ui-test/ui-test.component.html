@@ -7,33 +7,60 @@
     <md-input-container style="width: 400%;">
       <input type="text" mdInput
         [formControl]="myControl"
-        [mdAutocomplete]="auto"
+        list="choice"
         placeholder="Search For">
+      <datalist id="choice">
+        <option value="1">1</option>
+        <option value="11">11</option>
+        <option value="122">122</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </datalist>
     </md-input-container>
-
-    <md-autocomplete style="width: 100%" #auto="mdAutocomplete">
-      <md-option *ngFor="let option of filteredOptions | async" [value]="option">
-      {{ option }}
-      </md-option>
-    </md-autocomplete>
   </md-grid-tile>
   <md-grid-tile [colspan]=3 [style.background]="lightblue">
     <button md-raised-button style="margin: 15px;"><i class="material-icons">search</i> Search</button>
     <button md-raised-button><i class="material-icons">undo</i> Reset</button>
   </md-grid-tile>
+  <md-grid-tile [colspan]=12>
+    <md-checkbox id="test-checkbox">Click me!</md-checkbox>
+  </md-grid-tile>
 </md-grid-list>
 
 <div style="margin-left: 100px;">
   <h3 md-subheader>Search Results</h3>
+  <md-list>
+    <md-list-item *ngFor="let doctor of doctors" style="border-bottom: 1px solid;">
+      <h4 md-line><strong>{{doctor.name}}</strong> - ({{doctor.id}})<span style="margin-left: 50px;"><span *ngFor="let program of doctor.programs">{{program}}</span></span></h4>
+      <p md-line>
+        <strong>{{doctor.practiceName}}</strong><br>
+        {{doctor.street}}<br>
+        {{doctor.city}} {{doctor.state}}, {{doctor.zip}}
+      </p>
+      <button md-button>CLICK 1</button>
+      <button md-button>Click 2</button>
+    </md-list-item>
+  </md-list>
+
   <md-card *ngFor="let doctor of doctors" style="width: 80%; background-color: lightblue; margin: 15px;">
     <md-card-header>
-      <md-icon md-list-avatar>folder</md-icon>
-      <md-card-title>{{doctor.name}}</md-card-title>
-      <md-card-subtitle>0000000000</md-card-subtitle>
+      <md-card-title>
+        <div>
+          {{doctor.name}} - {{doctor.id}}
+          <div style="float: right;">
+            <div *ngFor="let program of doctor.programs">{{program}}</div>
+          </div>
+        </div>
+      </md-card-title>
     </md-card-header>
     <md-card-content>
       <p> {{doctor.updated | date}} </p>
-      <p>Info will go here</p>
+      <h3>Address</h3>
+      <p>
+        {{doctor.street}}<br>
+        {{doctor.city}} {{doctor.state}}, {{doctor.zip}}
+      </p>
     </md-card-content>
     <md-card-actions>
       <button md-button>CLICK 1</button>

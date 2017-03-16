@@ -18,15 +18,39 @@ export class UiTestComponent implements OnInit {
   doctors = [
     {
       name: 'Doc1',
+      id: '0000000000',
+      programs: ['program1', 'program2'],
       updated: new Date('1/1/16'),
+      street: 'street1',
+      city: 'city1',
+      state: 'NA',
+      zip: '00000',
+      taxid: '1234567890',
+      practiceName: 'practice'
     },
     {
       name: 'Doc2',
-      updated: new Date('1/17/16'),
+      id: '0000000000',
+      programs: ['program1', 'program2'],
+      updated: new Date('1/1/16'),
+      street: 'street1',
+      city: 'city1',
+      state: 'NA',
+      zip: '00000',
+      taxid: '1234567890',
+      practiceName: 'practice'
     },
     {
       name: 'Doc3',
-      updated: new Date('1/28/16'),
+      id: '0000000000',
+      programs: ['program1', 'program2'],
+      updated: new Date('1/1/16'),
+      street: 'street1',
+      city: 'city1',
+      state: 'NA',
+      zip: '00000',
+      taxid: '1234567890',
+      practiceName: 'practice'
     }
   ];
 
